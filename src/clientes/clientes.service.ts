@@ -14,7 +14,7 @@ export class ClientesService {
         return await this.clienteRepository.find();
       }
 
-      async createCliente(clienteNuevo: CreateClientesDto){
+      async createCliente(clienteNuevo: CreateClientesDto) {
         const nuevo = new Cliente();
         nuevo.cedula = clienteNuevo.cedula;
         nuevo.nombres = clienteNuevo.nombres;
@@ -22,8 +22,16 @@ export class ClientesService {
         return this.clienteRepository.save(nuevo);
       }
 
-      async updateCliente(idCliente: number, clienteActualizar: CreateClientesDto){
-        const clienteUpdate = this.clienteRepository.findOne(idCliente);
-        
+      async updateCliente(idCliente: number, clienteActualizar: CreateClientesDto) {
+        const clienteUpdate = await this.clienteRepository.findOne(idCliente);
+        clienteUpdate.cedula = clienteActualizar.cedula;
+        clienteUpdate.nombres = clienteActualizar.nombres;
+        clienteUpdate.apellidos = clienteActualizar.apellidos;
+
+        return await this.clienteRepository.save(clienteUpdate);
+      }
+
+      async deleteCliente(idCliente: number) {
+        return await this.clienteRepository.delete(idCliente);
       }
 }
