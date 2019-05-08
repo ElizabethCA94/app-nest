@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { identity } from 'rxjs';
 
 @Entity()
-export class Cliente {
+export class User {
     @PrimaryGeneratedColumn()
     cedula: string;
 
