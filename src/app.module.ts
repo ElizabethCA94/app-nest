@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { VehiculosController } from './vehiculos/vehiculos.controller';
+import { VehiclesController } from './vehicles/vehicles.controller';
 import { UsersController } from './Users/Users.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersService } from './Users/Users.service';
-import { VehiculosService } from './vehiculos/vehiculos.service';
+import { VehiclesService } from './vehicles/vehicles.service';
 import { User } from './Users/entities/User.entity';
-import { Vehiculo } from './vehiculos/entities/vehiculo.entity';
+import { Vehicle } from './vehicles/entities/vehicle.entity';
 
 @Module({
   imports: [
@@ -22,9 +22,9 @@ import { Vehiculo } from './vehiculos/entities/vehiculo.entity';
         synchronize: true,
       }),
       TypeOrmModule.forFeature([User]),
-      TypeOrmModule.forFeature([Vehiculo]),
+      TypeOrmModule.forFeature([Vehicle]),
   ],
-  controllers: [AppController, VehiculosController, UsersController],
-  providers: [AppService, UsersService, VehiculosService],
+  controllers: [AppController, VehiclesController, UsersController],
+  providers: [AppService, UsersService, VehiclesService],
 })
 export class AppModule {}

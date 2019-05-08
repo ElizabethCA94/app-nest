@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
-export class Vehiculo {
+export class Vehicle {
     @PrimaryGeneratedColumn()
     placa: string;
 

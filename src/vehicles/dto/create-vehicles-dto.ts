@@ -1,4 +1,4 @@
-export class CreateVehiculosDto {
+export class CreateVehiclesDto {
     readonly placa: string;
     readonly chasis: string;
 }
